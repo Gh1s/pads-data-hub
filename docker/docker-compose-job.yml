@@ -1,0 +1,20 @@
+﻿version: "3.3"
+
+services:
+  padsdatahub:
+    image: csbiti/pads-data-hub:latest_14
+    container_name: padsdatahub
+    #build:
+    #  context: .
+    #  dockerfile: ElasticsearchIntegration/Dockerfile
+    volumes:
+      - type: bind
+        source: ../PadsDataHub/lineconsole/live_pad.log
+        target: /app/live_pad.log
+      - type: bind
+        source: ../PadsDataHub/appsettings.json
+        target: /app/appsettings.json
+#networks:
+#  default:
+#    external: 
+#      name: temp
